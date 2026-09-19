@@ -14,3 +14,11 @@ This repository implements two creational design patterns in the domain of a Pay
 - **Concrete Products:** `VisaProcessor`, `LocalCardProcessor`, `CryptoProcessor`
 - **Creator:** `TerminalCreator` ( would contain `executeTransaction()` business logic)
 - **Concrete Creators:** `VisaTerminalCreator`, `LocalTerminalCreator`, `CryptoTerminalCreator`
+
+### Part B: Abstract Factory
+- **Abstract Products:** `Card`, `Receipt`, `Validator`
+- **Abstract Factory:** `PaymentRegionalFactory`
+- **Concrete Families:**
+  - **USA Region:** `UsaCard`, `UsaReceipt`, `UsaValidator` (created by `UsaPaymentFactory`)
+  - **EU Region:** `EuCard`, `EuReceipt`, `EuValidator` (created by `EuPaymentFactory`)
+- **Client:** `RegionalTerminalClient` (uses composition, decoupled from concrete classes)
